@@ -1,7 +1,7 @@
 # English version
 ____
 ## Name:
-- MyPlayer
+- MyPlayer V2.0
 
 ## Introduction:
 -   Using TD-Framework to rewrite the MyPlayer music player, open source as the second version of the MyPlayer player, If you have any questions or suggestions,you can send email to qiugeyafang@gmail.com.
