@@ -13,7 +13,7 @@
 #include "ThreeDog/tdtoolbar.h"
 #include "ThreeDog/tdstackbutton.h"
 #include "ThreeDog/tdslider.h"
-
+#include "myplaylist.h"
 class Widget : public TDWidget
 {
 
@@ -48,6 +48,8 @@ private :
     QLabel        *m_pMusicInfo;         //音乐名标签
     QLabel        *m_pLeftMusicTime;     //左侧音乐时间
     QLabel        *m_pRightMusicTime;    //右侧音乐时间
+
+    MyPlayList    *m_pMyPlayList;        //显示的播放列表
 
 };
 

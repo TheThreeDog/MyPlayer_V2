@@ -26,7 +26,9 @@ SOURCES += main.cpp\
     ThreeDog/tdslider.cpp \
     ThreeDog/tdstackbutton.cpp \
     ThreeDog/tdtoolbar.cpp \
-    ThreeDog/tdwidget.cpp
+    ThreeDog/tdwidget.cpp \
+    myplaylist.cpp \
+    myplaylistitem.cpp
 
 HEADERS  += widget.h \
     ThreeDog/tdabstractbutton.h \
@@ -41,7 +43,9 @@ HEADERS  += widget.h \
     ThreeDog/tdslider.h \
     ThreeDog/tdstackbutton.h \
     ThreeDog/tdtoolbar.h \
-    ThreeDog/tdwidget.h
+    ThreeDog/tdwidget.h \
+    myplaylist.h \
+    myplaylistitem.h
 
 RESOURCES += \
     img.qrc

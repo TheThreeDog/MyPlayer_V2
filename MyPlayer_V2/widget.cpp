@@ -45,14 +45,17 @@ void Widget::InitInterface()
     m_pLeftMusicTime = new QLabel(this);
     m_pLeftMusicTime->setText("00:00");
     m_pLeftMusicTime->setFixedSize(50,30);
-    m_pLeftMusicTime->move(175,590);
+    m_pLeftMusicTime->move(176,590);
     m_pLeftMusicTime->setPalette(palette);
     m_pRightMusicTime = new QLabel(this);
     m_pRightMusicTime->setText("00:00");
     m_pRightMusicTime->setFixedSize(50,30);
-    m_pRightMusicTime->move(258,590);
+    m_pRightMusicTime->move(259,590);
     m_pRightMusicTime->setPalette(palette);
 
+    //生成播放列表
+    m_pMyPlayList = new MyPlayList(this);
+    m_pMyPlayList->move(30,150);
 }
 
 void Widget::loadButtons()
