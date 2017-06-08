@@ -21,11 +21,11 @@ MyPlayList::MyPlayList(QWidget *parent)
     pic.load(":/image/music_item_mask.png");
     this->setMask(pic.mask());
 
-    for(int i = 0; i < 20; i++){
-        MyPlayListItem * item = new MyPlayListItem(this);
-        item->setText("薛之谦-王子和公主");
-        this->addItem(item);
-    }
+//    for(int i = 0; i < 20; i++){
+//        MyPlayListItem * item = new MyPlayListItem(this);
+//        item->setText("薛之谦-王子和公主");
+//        this->addItem(item);
+//    }
 }
 
 MyPlayList::~MyPlayList()

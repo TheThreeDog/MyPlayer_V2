@@ -10,7 +10,7 @@
  **************************************************************/
 
 #include "tdlistwidget.h"
-
+#include <QDebug>
 TDListWidgetItem::TDListWidgetItem(QWidget *parent, Qt::Orientation ot)
     :TDMenuButton(parent)
 {
@@ -45,13 +45,13 @@ void TDListWidgetItem::setText(const QString &text)
 void TDListWidgetItem::init(Qt::Orientation ot)
 {
     if(Qt::Horizontal == ot){
-        this->setMaximumSize(30,this->parentWidget()->height());
+        this->setMaximumSize(30,100);
         //设置文字纵向显示
         this->setWordWrap(true);
         this->setAlignment(Qt::AlignTop);
         //this->setMinimumHeight(30);
     }else if(Qt::Vertical == ot){
-        this->resize(this->parentWidget()->width(),30);
+        this->resize(100,30);
         //this->setMinimumWidth(30);
     }
     this->setAlignment(Qt::AlignCenter);

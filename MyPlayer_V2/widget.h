@@ -14,6 +14,8 @@
 #include "ThreeDog/tdstackbutton.h"
 #include "ThreeDog/tdslider.h"
 #include "myplaylist.h"
+#include <QMediaPlayer>
+enum PLAYMODE { GO,LOOP,ONELOOP,RANDOM };
 class Widget : public TDWidget
 {
 
@@ -23,7 +25,16 @@ public:
     Widget(QWidget *parent = 0);         //构造函数
     void InitInterface();                //初始化界面
     void loadButtons();                  //加载按钮
+    void readMusicList(QStringList list);//读取音乐信息
     ~Widget();
+public slots:
+    void addMusic();                     //添加歌曲
+    void play();                         //播放
+    void play(int i);                    //播放指定下标的音乐
+    void pause();                        //暂停
+    void playNext();                     //下一曲
+    void playPrevious();                 //上一曲
+    void changeMode();                   //切换播放模式
 private :
     TDPushButton  *m_pPlayButton;        //播放按钮
     TDPushButton  *m_pPauseButton;       //暂停按钮
@@ -39,8 +50,8 @@ private :
     TDStackButton *m_pPlayModeButton;    //播放模式按钮
     TDPushButton  *m_pModeButton1;       //顺序播放
     TDPushButton  *m_pModeButton2;       //列表循环
-    TDPushButton  *m_pModeButton3;       //随机播放
-    TDPushButton  *m_pModeButton4;       //单曲循环
+    TDPushButton  *m_pModeButton3;       //单曲循环
+    TDPushButton  *m_pModeButton4;       //随机播放
 
     TDSlider      *m_pMusicSlider;       //音乐进度槽
     TDSlider      *m_pVolumnSlider;      //音量槽
@@ -50,7 +61,8 @@ private :
     QLabel        *m_pRightMusicTime;    //右侧音乐时间
 
     MyPlayList    *m_pMyPlayList;        //显示的播放列表
-
+    PLAYMODE       m_ePlayMode;          //播放模式
+    QMediaPlayer  *m_pPlayer;            //播放器
 };
 
 #endif // WIDGET_H
