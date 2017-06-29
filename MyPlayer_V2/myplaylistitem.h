@@ -17,9 +17,9 @@ public:
     void setText(const QString &text);          //设置左部分所显示的文字
     QString getLeftText();                      //获取左侧的文字信息
     void setPath(const QString & path);         //设置该条目录对应的歌曲路径
+    QString getPath();                          //获取该条目对应的歌曲路径
     void setMusicIndex(const int & index);      //设置音乐的下标号
     int getMusicIndex();                        //设置条目对应的音乐的下标号
-    QString getPath();                          //获取该条目对应的歌曲路径
     //RightKeyMenu * getRightKeyMenu();
     void openMV();                              //播放MV
     ~MyPlayListItem();

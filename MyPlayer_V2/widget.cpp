@@ -63,7 +63,6 @@ void Widget::InitInterface()
     //设置播放模式为随机播放
     m_ePlayMode = RANDOM;
 
-
 }
 
 void Widget::loadButtons()
@@ -105,14 +104,12 @@ void Widget::loadButtons()
     m_pModeButton4 = new TDPushButton(":/image/mode_random.png",":/image/mode_random.png",":/image/mode_random.png",this);
     m_pModeButton4->setToolTip("随机播放");
     m_pModeButton4->setCallback(this,my_selector(changeMode));
-
     m_pPlayModeButton = new TDStackButton(this);
     m_pPlayModeButton->addButton(m_pModeButton1);
     m_pPlayModeButton->addButton(m_pModeButton2);
     m_pPlayModeButton->addButton(m_pModeButton3);
     m_pPlayModeButton->addButton(m_pModeButton4);
     m_pPlayModeButton->move(260,120);
-
 }
 
 void Widget::changeMode()
@@ -159,13 +156,23 @@ void Widget::readMusicList(QStringList list)
     for(; music_num < list.size(); music_num++){
         QString path = QDir::toNativeSeparators(list.at(music_num));
         if(!path.isEmpty()){
+            bool isExist = false;
+            //检测到路径，但要保证此路径在列表中不存在、
+            //即过滤掉重复项
+            for(int t = 0; t < m_pMyPlayList->getCount();t++){
+                if(path == ((MyPlayListItem *)(m_pMyPlayList->getItem(t)))->getPath()){
+                    isExist = true;
+                    break;
+                }
+            }
             //将新歌曲添加到播放列表中，两者通过相同的index联系！
             //play_list_->addMedia(QUrl::fromLocalFile(path));
             //if(player_->state() == QMediaPlayer::StoppedState)
             //    play_list_->setCurrentIndex(i);
             //将新歌曲添加到自定义的显示列表中
+            if(!isExist){
             QString file_name = path.split("\\").last();
-            MyPlayListItem * new_music = new MyPlayListItem;
+            MyPlayListItem * new_music = new MyPlayListItem(m_pMyPlayList);
             new_music->setPath(path);
             new_music->setText(file_name.split(".").front());
             new_music->setIndex(i);
@@ -176,6 +183,7 @@ void Widget::readMusicList(QStringList list)
             //列表右键菜单触发事件
             //记得每次也要将i++，i还作为歌曲index传入！
             i++;
+            }
         }
     }
     //  右键菜单中的槽函数们

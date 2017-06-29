@@ -49,6 +49,8 @@ QString MyPlayListItem::getLeftText()
 void MyPlayListItem::setPath(const QString &path)
 {
     this->m_sPath = path;
+    //同时指定以下歌曲的MV名称。
+    m_sMVName = m_sPath.remove(path.right(3)) + "wmv";
 }
 
 void MyPlayListItem::setMusicIndex(const int &index)
@@ -131,7 +133,7 @@ void MyPlayListItem::focusInEvent(QFocusEvent *)
 {
     m_bIsSelected = true;
     QPalette palette;
-    palette.setColor(QPalette::Background, QColor(88,88,88));
+    palette.setColor(QPalette::Background, QColor("#80585858"));
     this->setPalette(palette);
 }
 
@@ -148,9 +150,10 @@ void MyPlayListItem::enterEvent(QEvent *)
 {
     if(!m_bIsSelected){
         QPalette palette;
-        palette.setColor(QPalette::Background, QColor(42,42,42));
+        palette.setColor(QPalette::Background, QColor("#802a2a2a"));
         this->setPalette(palette);
 
+        //通过MV是否存在生成对应按钮
         QFileInfo fi(m_sMVName);
         if(fi.exists()){
             if(m_pMVButton == NULL){
