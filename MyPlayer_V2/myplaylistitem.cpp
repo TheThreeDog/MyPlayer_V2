@@ -162,7 +162,7 @@ void MyPlayListItem::enterEvent(QEvent *)
                                       ":/image/mv_press.png",
                                       this);
                 m_pMVButton->move(300,2);
-                m_pMVButton->setCallback(this,my_selector(openMV));
+                m_pMVButton->setCallback(this,my_selector(MyPlayListItem::openMV));
             }
         }else {
             if(NULL == m_pMVButton){

@@ -78,7 +78,7 @@ void Widget::loadButtons()
     m_pNextButton->move(53,620);
     m_pAddButton = new TDPushButton(":/image/add_normal.png",":/image/add_hover.png",":/image/add_press.png",this);
     m_pAddButton->move(137,141);
-    m_pAddButton->setCallback(this,my_selector(addMusic));
+    m_pAddButton->setCallback(this,my_selector(Widget::addMusic));
     m_pSettingButton = new TDPushButton(":/image/setting_normal.png",":/image/setting_hover.png",":/image/setting_press.png",this);
     m_pSettingButton->move(261,72);
     m_pSearchButton = new TDPushButton(":/image/serch_normal.png",":/image/serch_hover.png",":/image/serch_press.png",this);
@@ -94,16 +94,16 @@ void Widget::loadButtons()
 
     m_pModeButton1 = new TDPushButton(":/image/mode_go.png",":/image/mode_go.png",":/image/mode_go.png",this);
     m_pModeButton1->setToolTip("顺序播放");
-    m_pModeButton1->setCallback(this,my_selector(changeMode));
+    m_pModeButton1->setCallback(this,my_selector(Widget::changeMode));
     m_pModeButton2 = new TDPushButton(":/image/mode_loop.png",":/image/mode_loop.png",":/image/mode_loop.png",this);
     m_pModeButton2->setToolTip("循环播放");
-    m_pModeButton2->setCallback(this,my_selector(changeMode));
+    m_pModeButton2->setCallback(this,my_selector(Widget::changeMode));
     m_pModeButton3 = new TDPushButton(":/image/mode_oneloop.png",":/image/mode_oneloop.png",":/image/mode_oneloop.png",this);
     m_pModeButton3->setToolTip("单曲循环");
-    m_pModeButton3->setCallback(this,my_selector(changeMode));
+    m_pModeButton3->setCallback(this,my_selector(Widget::changeMode));
     m_pModeButton4 = new TDPushButton(":/image/mode_random.png",":/image/mode_random.png",":/image/mode_random.png",this);
     m_pModeButton4->setToolTip("随机播放");
-    m_pModeButton4->setCallback(this,my_selector(changeMode));
+    m_pModeButton4->setCallback(this,my_selector(Widget::changeMode));
     m_pPlayModeButton = new TDStackButton(this);
     m_pPlayModeButton->addButton(m_pModeButton1);
     m_pPlayModeButton->addButton(m_pModeButton2);
